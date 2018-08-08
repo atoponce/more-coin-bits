@@ -1,5 +1,5 @@
-# 2-bit-coin
-Extracting 2 bits with every coin toss, with nothing more than one coin and a
+# more-coin-bits
+Extracting 2 and 3 bits with every coin toss, with nothing more than one coin and a
 sheet of paper.
 
 ## Introduction
@@ -47,14 +47,38 @@ It is possible to extract 3 bits from a coin flip in a couple of ways:
 
 In the first proposal, it's not clear how much impact a common coin flip has on
 rotational spin, and whether or not this is unpredictable enough to extract a
-third bit from.
+third bit from. A
+[research paper about coin flipping bias](http://statweb.stanford.edu/~susan/papers/headswithJ.pdf)
+suggests that coin precessing (spinning about the y-axis) is happening.
 
 In the second proposal, the grid edges would have to be relaculated, shrinking
 the area of the grid, such that a coin has equal probability of landing squarely
 in the tile, without touching an edge, landing on a vertical edge only, landing
 on a horizontal edge only, and landing on both edges in a corner.
 
-Neither of these proposals are investigated in this document.
+Using the quadratic formula that we applied above to the 1-dimensional case
+(whether or not the coin crossed a grid line), can be applied on the 2-dimensional
+case by testing:
+
+1. Not crossing any grid line.
+2. Crossing only the x-axis grid lines.
+3. Crossing only the y-axis grid lines.
+4. Crossing both the x/y axes grid lines (corner).
+
+The equation then becomes:
+
+    1/2 = (l-d)^2/l^2
+
+Solving for `l` yields:
+
+    l = 2*d, l = 2/3*d
+
+The solution `l = 2*d` is what we're interested in. This project provides both the
+2-bits per flip and 3-bits per flip grids.
+
+### Additional bits
+Some other ideas could extract a 4th bit via colored grids. This approach, and
+others are not currently investigated here.
 
 ## Execution
 Print off the PDF appropriate for your coin, and flip a coin such that it lands
