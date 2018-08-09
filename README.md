@@ -51,8 +51,7 @@ white area in the following image, the edges of the coin will not cross a grid
 edge. However, if the center of the coin lands anywhere within the red area,
 then it will.
 
-![2-bit coin
-flip](https://user-images.githubusercontent.com/699572/43922357-bfb65b7c-9bdb-11e8-9c6e-c6c184961968.png)
+<img src="https://user-images.githubusercontent.com/699572/43922357-bfb65b7c-9bdb-11e8-9c6e-c6c184961968.png" width="400px"/>
 
 Of course, as a sanity check, the area of the red should equal the area of the
 white. However, we have already proved that above.
@@ -98,8 +97,7 @@ area, then it will only cross an x-axis grid edge. Of course, if the center of
 the coin lands anywhere in a red area, then the coin will cross both the x and y
 axes by landing in a corner.
 
-![3-bit coin
-flip](https://user-images.githubusercontent.com/699572/43922358-bfeddd40-9bdb-11e8-9a1e-e28946f55972.png)
+<img src="https://user-images.githubusercontent.com/699572/43922358-bfeddd40-9bdb-11e8-9a1e-e28946f55972.png" width="400px" />
 
 As a sanity check, the area of the white equals the area of the green which also
 equals the area of the blue as well as the area of the red.
