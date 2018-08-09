@@ -34,10 +34,10 @@ If you know the coin's diameter, you can solve for the tile edge length:
     1/2 = (l-d)^/l^2
     l^2 = 2*(l-d)^2
     l^2 = 2*l^2-4*l*d+2*d^2
-    0 = l^2-4*l*d+2d^2
+    0 = l^2-4*l*d+2*d^2
 
 Applying the quadratic formula as a solution to our quadratic equation, we can
-solve for `l` and simplify, yielding
+solve for `l` and simplify, yielding:
 
     l = d*(2+Sqrt(2)), l = d*(2-Sqrt((2))
 
@@ -67,17 +67,26 @@ crosses any grid edge, we identify if the coin:
 4. CRosses both the x/y axes (lands in a corner).
 
 Using the quadratic formula that we applied above to the 1-dimensional case
-(whether or not the coin crossed a grid edge), can be applied on the 2-dimensional
-case. The equation then becomes:
+(whether or not the coin crossed a grid edge), can be applied on the
+2-dimensional case. The equation then becomes:
 
     1/4 = (l-d)^2/l^2
 
-Solving for `l` yields:
+If you know the coin's diameter, you can solve for the tile edge length:
+
+    1/4 = (l-d)^/l^2
+    l^2 = 4*(l-d)^2
+    l^2 = 4*(l^2-2*d*l+d^2)
+    l^2 = 4*l^2-8*l*d+4*d^2
+    0 = 3*l^2-8*l*d+2*d^2
+
+Applying the quadratic formula as a solution to our quadratic equation, we can
+solve for `l` and simplify, yielding:
 
     l = 2*d, l = 2/3*d
 
-The solution `l = 2*d` is what we're interested in. This project provides both the
-2-bits per flip and 3-bits per flip grids.
+The solution `l = 2*d` is what we're interested in. This project provides both
+the 2-bits per flip and 3-bits per flip grids.
 
 #### Visual Construction
 When looking again at the coin's center, and where it lands in the grid, if it
