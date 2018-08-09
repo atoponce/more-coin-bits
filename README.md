@@ -19,6 +19,7 @@ The probability is:
 
     P = (l-d)^2/l^2
 
+### Extracting 2-bits
 In this case, we want to know when the probability is exactly 50%. Thus:
 
     1/2 = (l-d)^2/l^2
@@ -39,35 +40,32 @@ We are only interested in the continuous distribution of probabilities in the
 range of [0,1], as such, we only care about `l = d*(2+Sqrt(2))` as our solution
 to finding the grid edge length, when we know the coin's diameter.
 
+#### Visual Construction
+When looking at where the coin's center lands on the grid, if it lands in the
+white area in the following image, the edges of the coin will not cross a grid
+line. However, if the center of the coin lands anywhere within the red area,
+then it will.
+
+![2-bit coin flip](https://user-images.githubusercontent.com/699572/43870379-78b8c46e-9b34-11e8-9187-cab997e07733.png)
+
+Of course, as a sanity check, the area of the red should equal the area of the
+white. However, we have already proved that above.
+
 ### Extracting 3 bits
-It is possible to extract 3 bits from a coin flip in a couple of ways:
+It is possible to extract 3 bits from a coin flip by applying the above
+procedure into two dimensions. Rather than testing whether or not the coin
+crosses any grid line, we identify if the coin:
 
-1. Recording the rotation of the coin as "facing north" versus "facing south".
-2. Recording crossing vertical grid edges, horizontal grid edges, and both.
-
-In the first proposal, it's not clear how much impact a common coin flip has on
-rotational spin, and whether or not this is unpredictable enough to extract a
-third bit from. A
-[research paper about coin flipping bias](http://statweb.stanford.edu/~susan/papers/headswithJ.pdf)
-suggests that coin precessing (spinning about the y-axis) is happening.
-
-In the second proposal, the grid edges would have to be relaculated, shrinking
-the area of the grid, such that a coin has equal probability of landing squarely
-in the tile, without touching an edge, landing on a vertical edge only, landing
-on a horizontal edge only, and landing on both edges in a corner.
+1. Does not cross a grid line.
+2. Crosses only any x-axis grid line.
+3. Crosses only any y-axis grid line.
+4. CRosses both the x/y axes (lands in a corner).
 
 Using the quadratic formula that we applied above to the 1-dimensional case
 (whether or not the coin crossed a grid line), can be applied on the 2-dimensional
-case by testing:
+case. The equation then becomes:
 
-1. Not crossing any grid line.
-2. Crossing only the x-axis grid lines.
-3. Crossing only the y-axis grid lines.
-4. Crossing both the x/y axes grid lines (corner).
-
-The equation then becomes:
-
-    1/2 = (l-d)^2/l^2
+    1/4 = (l-d)^2/l^2
 
 Solving for `l` yields:
 
@@ -75,6 +73,20 @@ Solving for `l` yields:
 
 The solution `l = 2*d` is what we're interested in. This project provides both the
 2-bits per flip and 3-bits per flip grids.
+
+#### Visual Construction
+When looking again at the coin's center, and where it lands in the grid, if it
+lands in the white area in the following image, the edges of the coin will not
+cross a grid line. However, if the center lands anywhere in a blue area, then it
+will only cross a y-axis grid line. If the center lands anywhere in a green
+area, then it will only cross an x-axis grid line. Of course, if the center of
+the coin lands anywhere in a red area, then the coin will cross both the x and y
+axes by landing in a corner.
+
+![3-bit coin flip](https://user-images.githubusercontent.com/699572/43870380-7933c178-9b34-11e8-8758-f214c5f1f4af.png)
+
+As a sanity check, the area of the white equals the area of the green which also
+equals the area of the blue as well as the area of the red.
 
 ### Additional bits
 Some other ideas could extract a 4th bit via colored grids. This approach, and
@@ -101,84 +113,3 @@ Then the tosses could be recorded as:
 
 If the coin lands outside of the paper, you can only record one bit, the face
 result, but not whether or not it crossed a grid edge, due to ambiguity.
-
-## Common Coins
-Below are commonly used coin diameters in centimeters, and their associated grid
-lengths in centimeters. PDFs are found in this repository for printing. They are
-broken down as:
-
-    Nationl currency
-    └── Paper type
-        └── Coin PDF
-
-### U.S. Coins
-
-* Penny
-  - Diameter: 1.905 cm
-  - Grid length: 6.504 cm
-* Nickel
-  - Diameter: 2.121 cm
-  - Grid length: 7.2415 cm
-* Dime
-  - Diameter: 1.791 cm
-  - Grid length: 6.1148 cm
-* Quarter
-  - Diameter: 2.426 cm
-  - Grid length: 8.2828 cm
-* Half Dollar
-  - Diameter: 3.061 cm
-  - Grid length: 10.4509 cm
-* Dollar (Sacagawea)
-  - Diameter: 2.65 cm
-  - Grid length: 9.0476 cm
-
-### Canadian Coins
-
-* Penny
-  - Diameter: 1.905 cm
-  - Grid length: 6.504 cm
-* Nickel
-  - Diameter: 2.12 cm
-  - Grid length: 7.2381 cm
-* Dime
-  - Diameter: 1.803 cm
-  - Grid length: 6.1558 cm
-* Quarter
-  - Diameter: 2.388 cm
-  - Grid length: 8.1531 cm
-* 50-cent
-  - Diameter: 2.713 cm
-  - Grid length: 9.2627 cm
-* Loonie
-  - Diameter: 2.65 cm
-  - Grid length: 9.0476 cm
-* Toonie
-  - Diameter: 2.8 cm
-  - Grid length: 9.5597 cm
-
-### Euro Coins
-
-* 1-cent
-  - Diameter: 1.625 cm
-  - Grid length: 5.548 cm
-* 2-cent
-  - Diameter: 1.875 cm
-  - Grid length: 6.4016 cm
-* 5-cent
-  - Diameter: 2.125 cm
-  - Grid length: 7.2552 cm
-* 10-cent
-  - Diameter: 1.975 cm
-  - Grid length: 6.743 cm
-* 20-cent
-  - Diameter: 2.225 cm
-  - Grid length: 7.5966 cm
-* 50-cent
-  - Diameter: 2.425 cm
-  - Grid length: 8.2794 cm
-* 1 euro
-  - Diameter: 2.325 cm
-  - Grid length: 7.938 cm
-* 2 euro
-  - Diameter: 2.575 cm
-  - Grid length: 8.7915 cm
